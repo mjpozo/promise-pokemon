@@ -5,7 +5,7 @@ $(document).ready(function(){
 		url: 'https://pokeapi.co/api/v2/pokemon',
 		type: 'GET',
 		dataType: 'json',
-		data: {'limit': '16'},
+		data: {'limit': '20'},
 	})
 	.done(function(respuesta) {
 		respuesta.results.forEach(function(e){
