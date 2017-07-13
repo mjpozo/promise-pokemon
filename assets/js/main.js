@@ -10,7 +10,7 @@ $(document).ready(function(){
 	.done(function(respuesta) {
 		respuesta.results.forEach(function(e){
 			console.log(e.name);
-			$(".contenedor").append('<div class="pokemonBox" id="box' + respuesta.results.indexOf(e) + '"><p>' + e.name + '</p><h6 id="hab' + respuesta.results.indexOf(e) + '">Habilidades</h6><h6 id="tip' + respuesta.results.indexOf(e) + '">Tipo de pokemon</h6><h6 id="peso' + respuesta.results.indexOf(e) + '">Peso del pokemon</h6></div>');
+			$(".contenedor").append('<div class="pokemonBox" id="box' + respuesta.results.indexOf(e) + '"><p class="title">Nombre</p><p>' + e.name + '</p><p class="title" id="hab' + respuesta.results.indexOf(e) + '">Habilidades</p><p class="title" id="tip' + respuesta.results.indexOf(e) + '">Tipo de pokemon</p><p class="title" id="peso' + respuesta.results.indexOf(e) + '">Peso del pokemon</p><p class="title" id="img' + respuesta.results.indexOf(e) + '">Peso del pokemon</p></div>');
 			llamarHabilidades(e.url);
 		})
 		
@@ -43,11 +43,19 @@ $(document).ready(function(){
 			misDatos.abilities.forEach(function(el){
 				$("#hab" + miId).append('<p>' + el.ability.name + '</p>');
 			});
+
+			//para rescatar el tipo de pokemon
 			misDatos.types.forEach(function(el){
 				$("#tip" + miId).append('<p>' + el.type.name + '</p>');
 			});
-			
+
+			//para rescatar el peso
 			$("#peso" + miId).append('<p>' + misDatos.weight + ' lb</p>');
+
+			//para rescatar las fotos
+			//misDatos.types.forEach(function(el){
+				$("#img" + miId).append('<img src="' + misDatos.sprites.front_default + '"></img>');
+			//});
 		})
 		.fail(function() {
 			console.log("segundo error");
