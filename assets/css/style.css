@@ -1,0 +1,28 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	font-size: 200%;
+	text-align: center;
+	padding: 5%;
+}
+
+.contenedor {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.pokemonBox {
+	box-sizing: border-box;
+	width: 200px;
+	border: 2px solid grey;
+}
