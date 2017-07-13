@@ -5,7 +5,7 @@ $(document).ready(function(){
 		url: 'http://pokeapi.co/api/v2/pokemon',
 		type: 'GET',
 		dataType: 'json',
-		data: {'limit': '15'},
+		data: {'limit': '16'},
 	})
 	.done(function(respuesta) {
 		respuesta.results.forEach(function(e){
@@ -31,7 +31,7 @@ $(document).ready(function(){
 			url: datos,
 			type: 'GET',
 			dataType: 'json',
-			data: {'limit': '15'}
+			data: {'limit': '16'}
 		})
 		.done(function(misDatos) {
 			console.log("Este es el mensaje de despues de la segunda llamada ajax");
