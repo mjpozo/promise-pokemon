@@ -10,7 +10,7 @@ $(document).ready(function(){
 	.done(function(respuesta) {
 		respuesta.results.forEach(function(e){
 			console.log(e.name);
-			$(".contenedor").append('<div class="pokemonBox" id="box' + respuesta.results.indexOf(e) + '"><p class="title">Nombre</p><p>' + e.name + '</p><p class="title" id="hab' + respuesta.results.indexOf(e) + '">Habilidades</p><p class="title" id="tip' + respuesta.results.indexOf(e) + '">Tipo de pokemon</p><p class="title" id="peso' + respuesta.results.indexOf(e) + '">Peso del pokemon</p><p class="title" id="img' + respuesta.results.indexOf(e) + '">Peso del pokemon</p></div>');
+			$(".contenedor").append('<div class="pokemonBox" id="box' + respuesta.results.indexOf(e) + '"><p class="title">Nombre</p><p>' + e.name + '</p><p class="title" id="hab' + respuesta.results.indexOf(e) + '">Habilidades</p><p class="title" id="tip' + respuesta.results.indexOf(e) + '">Tipo de pokemon</p><p class="title" id="peso' + respuesta.results.indexOf(e) + '">Peso del pokemon</p><div class="title img-poke" id="img' + respuesta.results.indexOf(e) + '"></div></div>');
 			llamarHabilidades(e.url);
 		})
 		
@@ -41,21 +41,19 @@ $(document).ready(function(){
 
 			//para rescatar las habilidades
 			misDatos.abilities.forEach(function(el){
-				$("#hab" + miId).append('<p>' + el.ability.name + '</p>');
+				$("#hab" + miId).append('<p class="info">' + el.ability.name + '</p>');
 			});
 
 			//para rescatar el tipo de pokemon
 			misDatos.types.forEach(function(el){
-				$("#tip" + miId).append('<p>' + el.type.name + '</p>');
+				$("#tip" + miId).append('<p class="info">' + el.type.name + '</p>');
 			});
 
 			//para rescatar el peso
-			$("#peso" + miId).append('<p>' + misDatos.weight + ' lb</p>');
+			$("#peso" + miId).append('<p class="info">' + misDatos.weight + ' lb</p>');
 
 			//para rescatar las fotos
-			//misDatos.types.forEach(function(el){
-				$("#img" + miId).append('<img src="' + misDatos.sprites.front_default + '"></img>');
-			//});
+			$("#img" + miId).append('<img src="' + misDatos.sprites.front_default + '"></img>');
 		})
 		.fail(function() {
 			console.log("segundo error");
